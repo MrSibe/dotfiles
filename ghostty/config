@@ -1,0 +1,7 @@
+font-family = "MesloLGS Nerd Font"
+font-size = 14
+# 开启透明度和模糊（高级感来源）
+background-opacity = 0.9
+background-blur-radius = 20
+# 隐藏标题栏，更极简
+# macos-titlebar-style = hidden
