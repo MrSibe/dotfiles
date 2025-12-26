@@ -1,0 +1,21 @@
+# Vim/Neovim temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Neovim plugin data (not configs)
+# Note: We DO want to keep lazy-lock.json for reproducibility
+nvim/.config/nvim/lazy-vim
+nvim/.config/nvim/.netrwhist
+
+# Any local override files
+*.local
+*.private
+
+# Backup files
+*.backup
+*.bak
+
+# Claude workspace files
+.claude/
