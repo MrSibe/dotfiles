@@ -79,7 +79,7 @@ stow_package() {
         info "Stowing package '$pkg'..."
     fi
 
-    if eval "$stow_cmd \"$pkg\"" 2>&1; then
+    if eval "$stow_cmd \"$pkg\""; then
         if [[ "$dry_run" != "true" ]]; then
             success "Package '$pkg' stowed successfully"
         fi
@@ -108,7 +108,7 @@ unstow_package() {
         info "Unstowing package '$pkg'..."
     fi
 
-    if eval "$stow_cmd \"$pkg\"" 2>&1; then
+    if eval "$stow_cmd \"$pkg\""; then
         if [[ "$dry_run" != "true" ]]; then
             success "Package '$pkg' unstowed successfully"
         fi
@@ -137,7 +137,7 @@ restow_package() {
         info "Restowing package '$pkg'..."
     fi
 
-    if eval "$stow_cmd \"$pkg\"" 2>&1; then
+    if eval "$stow_cmd \"$pkg\""; then
         if [[ "$dry_run" != "true" ]]; then
             success "Package '$pkg' restowed successfully"
         fi
@@ -325,23 +325,23 @@ main() {
         case "$action" in
             stow)
                 if stow_package "$pkg" "$dry_run"; then
-                    ((success_count++))
+                    success_count=$((success_count + 1))
                 else
-                    ((fail_count++))
+                    fail_count=$((fail_count + 1))
                 fi
                 ;;
             unstow)
                 if unstow_package "$pkg" "$dry_run"; then
-                    ((success_count++))
+                    success_count=$((success_count + 1))
                 else
-                    ((fail_count++))
+                    fail_count=$((fail_count + 1))
                 fi
                 ;;
             restow)
                 if restow_package "$pkg" "$dry_run"; then
-                    ((success_count++))
+                    success_count=$((success_count + 1))
                 else
-                    ((fail_count++))
+                    fail_count=$((fail_count + 1))
                 fi
                 ;;
         esac
